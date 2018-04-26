@@ -28,6 +28,11 @@ function init(){
 		$("#id_color").html(r);
 		$('#id_color').selectpicker('refresh');
 	});
+
+	$.post("../ajax/C_Marca_Vehiculo.php?op=selectMarcaVehiculo", function(r){
+		$("#id_marca_vehiculo").html(r);
+		$('#id_marca_vehiculo').selectpicker('refresh');
+	});
 }
 
 //Funcion limpiar
@@ -109,7 +114,18 @@ function guardaryeditar(e){
 
 		success: function(datos){
 			guardaryeditarVehiculo(datos);
-			bootbox.alert(datos);
+		}
+	});
+
+	$.ajax({
+		url: "../ajax/C_Usuario.php?op=guardar",
+		type: "POST",
+		data: formData,
+		contentType: false,
+		processData: false,
+
+		success: function(datos){
+			bootbox.alert("Se registro correctamente");
 		}
 	});
 }
@@ -127,7 +143,6 @@ function guardaryeditarVehiculo($id_persona_new){
 
 		success: function(datos){
 			guardarPersonaXVehiculo($id_persona_new, datos);
-			bootbox.alert(datos);
 		}
 	});
 }
@@ -145,7 +160,7 @@ function guardarPersonaXVehiculo($id_persona_new, $id_vehiculo_new){
 		//processData: false,
 
 		success: function(datos){
-			bootbox.alert(datos);
+			bootbox.alert("Se registro correctamente");
 			mostrarform(false);
 			tabla.ajax.reload();
 		}

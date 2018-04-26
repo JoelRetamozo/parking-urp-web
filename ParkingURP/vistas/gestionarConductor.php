@@ -11,7 +11,7 @@ require 'header.php';
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Gestionar Persona</li>
+        <li class="active">Gestionar Conductor</li>
       </ol>
     </section>
 
@@ -132,6 +132,12 @@ require 'header.php';
                         <input type="text" class="form-control" name="placa" id="placa" maxlength="10" placeholder="Placa" required>
                       </div>
                       <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label>Marca Vehiculo:</label>
+                        <div class="">
+                          <select id="id_marca_vehiculo" name="id_marca_vehiculo" class="form-control selectpicker" data-live-search="true" required></select>
+                        </div>
+                      </div>
+                      <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <label>Modelo:</label>
                         <input type="text" class="form-control" name="modelo" id="modelo" maxlength="50" placeholder="Modelo" required>
                       </div>
@@ -177,4 +183,4 @@ require 'header.php';
 require 'footer.php';
 ?>
 
-<script type="text/javascript" src="scripts/gestionarPersona.js"></script>
+<script type="text/javascript" src="scripts/gestionarConductor.js"></script>

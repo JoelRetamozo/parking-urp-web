@@ -9,6 +9,8 @@ switch ($_GET["op"]) {
 
 			$rspta = $m_color->select();
 
+			echo '<option value="NO">--SELECCIONE--</option>';
+
 			while ($reg = $rspta->fetch_object()) {
 				echo '<option value="' . $reg->id_color . '">' . $reg->nombre . '</option>';
 			}
