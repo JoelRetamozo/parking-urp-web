@@ -113,26 +113,14 @@ function guardaryeditar(e){
 		processData: false,
 
 		success: function(datos){
-			guardaryeditarVehiculo(datos);
-		}
-	});
-
-	$.ajax({
-		url: "../ajax/C_Usuario.php?op=guardar",
-		type: "POST",
-		data: formData,
-		contentType: false,
-		processData: false,
-
-		success: function(datos){
-			bootbox.alert("Se registro correctamente");
+			guardarUsuario(datos, formData);
+			guardaryeditarVehiculo(datos, formData);
+			bootbox.alert(datos);
 		}
 	});
 }
 
-function guardaryeditarVehiculo($id_persona_new){
-
-	var formData = new FormData($("#formulario")[0]);
+function guardaryeditarVehiculo($id_persona_new, formData){
 
 		$.ajax({
 		url: "../ajax/C_Vehiculo.php?op=guardaryeditar",
@@ -143,6 +131,22 @@ function guardaryeditarVehiculo($id_persona_new){
 
 		success: function(datos){
 			guardarPersonaXVehiculo($id_persona_new, datos);
+			bootbox.alert(datos);
+		}
+	});
+}
+
+function guardarUsuario($id_persona_new, formData){
+
+	$.ajax({
+		url: "../ajax/C_Usuario.php?op=guardar&id_persona=" + $id_persona_new,
+		type: "POST",
+		data: formData,
+		contentType: false,
+		processData: false,
+
+		success: function(datos){
+			bootbox.alert(datos);
 		}
 	});
 }

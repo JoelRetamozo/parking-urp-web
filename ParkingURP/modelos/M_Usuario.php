@@ -9,13 +9,14 @@ Class M_Usuario{
 
 	}
 
-	public function insertar($codigo, $correo){
+	public function insertar($codigo, $correo, $id_persona){
 
-		$password = crearPassword();
+		//$password = crearPassword();
+		$password = "ekjhbdkfujbfsdposdf";
 
-		enviarMail($correo, $password);
+		//enviarMail($correo, $password);
 
-		$sql = "INSERT INTO T_Usuario(codigo, password, estado) VALUES ('$codigo', '$password', '1')";
+		$sql = "INSERT INTO T_Usuario(codigo, password, estado, id_persona) VALUES ('$codigo', '$password', '1', '$id_persona')";
 
 		return ejecutarConsulta($sql);
 	}
